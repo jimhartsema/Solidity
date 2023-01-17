@@ -6,7 +6,7 @@ contract accessControl {
     event RevokeRole(bytes32 indexed role, address indexed account);
     
     mapping(bytes32 => mapping(address => bool)) public roles;
-XX
+
     bytes32 private constant ADMIN = keccak256(abi.encodePacked("ADMIN"));
     bytes32 private constant USER = keccak256(abi.encodePacked("USER"));
 
@@ -31,5 +31,5 @@ XX
     function revokeRole(bytes32 _role, address _account) external onlyRole(ADMIN){
         roles[_role][_account] = false;
         emit RevokeRole(_role, _account);
-   XS }
+    }
 }
